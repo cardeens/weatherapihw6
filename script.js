@@ -2,9 +2,17 @@
 var key = "fb021fb2cd887810a1af82c9cd804746";
 
 var searchedCities = localStorage.getItem("history")
-console.log(searchedCities.split(","))
+
+if (searchedCities === null) {
+    searchedCities = ""
+
+} 
+
 
 for (var i = 0; i < searchedCities.split(",").length; i++) {
+    // if (searchedCities.split(",")[i] === "") {
+    //     return
+    // }
     addRow(searchedCities.split(",")[i])
 }
 
@@ -19,15 +27,20 @@ $("#search-button").on("click", function () {
 })
 
 function addRow(text) {
-    var li = $("<li>").addClass("list-group-item list-group-item-action").text(capitalizeCity(text));
+    var li = $("<li>").addClass("list-group-item list-group-item-action").text(text);
     $(".history").append(li);
+    if (text === "") {
+        li.addClass("hide")
+    }
+
 }
 
 // Current Weather 
 function cityWeather(cityValue) {
     var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + cityValue + "&units=imperial&appid=" + key;
     $.get(queryURL, function (data) {
-        var searchedCities = localStorage.getItem("history")
+        // var searchedCities = localStorage.getItem("history")
+        console.log(searchedCities)
         var history = searchedCities.split(",")
         if (history.indexOf(cityValue) === -1) {
             history.push(cityValue);
@@ -36,7 +49,14 @@ function cityWeather(cityValue) {
             window.localStorage.setItem("history", history.join(","));
             addRow(cityValue);
         }
-
+        // } else if (history.indexOf(capitalizeCity(cityValue)) === -1) {
+        //     history.push(cityValue);
+        //     console.log(history)
+        //     console.log(searchedCities.split(","))
+        //     window.localStorage.setItem("history", history.join(","));
+        //     addRow(cityValue);
+        // }
+        
         $("#today").empty();
 
         var card = $("<div>").addClass("card");
