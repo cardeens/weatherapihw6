@@ -1,3 +1,66 @@
 * {
-    border: 1px solid black;
+    /* border: 1px solid black; */
 }
+
+aside {
+    padding-top: 15px;
+}
+
+.jumbotron {
+    margin-top: 15px;
+}
+
+.hide {
+    display: none;
+}
+
+.disclaimer {
+    font-size: 15px;
+    font-style: italic;
+}
+
+.forecast {
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.small {
+    font-size: 15px;
+}
+
+.card-header {
+    text-align: center;
+    font-weight: bold;
+}
+
+.uv-value {
+    color: white;
+    border: 2px solid white;
+    border-radius: 5px;
+}
+.gray {
+    background-color: rgb(114, 113, 113);
+}
+
+.yellow {
+    background-color: rgb(194, 194, 0);
+}
+
+.orange {
+    background-color: orange;
+}
+
+.red {
+    background-color: red;
+}
+
+.black {
+    background-color: black
+}
+#forecast-title {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+
+
