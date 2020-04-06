@@ -109,7 +109,7 @@ function cityWeather(cityValue) {
 
 // 5 day forecast 
 function cityForecast(city) {
-    var queryURL = `http://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=` + key + `&units=imperial`
+    var queryURL = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=` + key + `&units=imperial`
     $.get(queryURL, function (data) {
         console.log(data)
         var fiveDay = function() {
